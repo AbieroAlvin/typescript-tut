@@ -7,6 +7,11 @@ import Input from "./components/Input";
 import Oscar from "./components/Oscar";
 import Person from "./components/Person";
 import PersonList from "./components/PersonList";
+import Counter from "./components/state/Counter";
+import { ThemeContextProvider } from "./components/context/ThemeContext";
+import Box from "./components/context/Box";
+import { UserContextProvider } from "./components/context/UserContext";
+import User from "./components/context/User";
 
 function App() {
   const personName = {
@@ -31,6 +36,13 @@ function App() {
 
   return (
     <div>
+      <UserContextProvider>
+        <User />
+      </UserContextProvider>
+      <ThemeContextProvider>
+        <Box />
+      </ThemeContextProvider>
+      <Counter />
       <Greet name="Alvin" isLoggedIn={false} />
       <Person name={personName} />
       <PersonList names={nameList} />
